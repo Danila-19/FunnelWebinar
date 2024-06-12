@@ -358,3 +358,9 @@ FROM messages
 WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
 2024-06-12 22:06:38,133 [INFO] [cached since 120s ago] (datetime.datetime(2024, 6, 12, 19, 6, 38, 119882),)
 2024-06-12 22:06:38,165 [INFO] COMMIT
+2024-06-12 22:07:38,190 [INFO] BEGIN (implicit)
+2024-06-12 22:07:38,196 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 22:07:38,196 [INFO] [cached since 180.1s ago] (datetime.datetime(2024, 6, 12, 19, 7, 38, 189227),)
+2024-06-12 22:07:38,199 [INFO] COMMIT
