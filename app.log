@@ -1,0 +1,360 @@
+2024-06-12 21:51:57,537 [INFO] select pg_catalog.version()
+2024-06-12 21:51:57,538 [INFO] [raw sql] ()
+2024-06-12 21:51:57,542 [INFO] select current_schema()
+2024-06-12 21:51:57,542 [INFO] [raw sql] ()
+2024-06-12 21:51:57,550 [INFO] show standard_conforming_strings
+2024-06-12 21:51:57,550 [INFO] [raw sql] ()
+2024-06-12 21:51:57,554 [INFO] BEGIN (implicit)
+2024-06-12 21:51:57,560 [INFO] SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-06-12 21:51:57,560 [INFO] [generated in 0.00039s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-06-12 21:51:57,571 [INFO] SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-06-12 21:51:57,572 [INFO] [cached since 0.01261s ago] ('messages', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-06-12 21:51:57,580 [INFO] COMMIT
+2024-06-12 21:51:57,582 [INFO] База данных инициализирована
+2024-06-12 21:51:58,161 [INFO] Connecting...
+2024-06-12 21:51:58,204 [INFO] Connected! Production DC2 - IPv4
+2024-06-12 21:51:58,210 [INFO] NetworkTask started
+2024-06-12 21:51:58,492 [INFO] Session initialized: Layer 158
+2024-06-12 21:51:58,492 [INFO] Device: CPython 3.9.10 - Pyrogram 2.0.106
+2024-06-12 21:51:58,492 [INFO] System: Darwin 20.6.0 (en)
+2024-06-12 21:51:58,493 [INFO] Session started
+2024-06-12 21:51:58,496 [INFO] PingTask started
+2024-06-12 21:51:58,775 [INFO] Started 8 HandlerTasks
+2024-06-12 21:51:58,776 [INFO] Бот запущен
+2024-06-12 21:51:58,780 [INFO] BEGIN (implicit)
+2024-06-12 21:51:58,791 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 21:51:58,791 [INFO] [generated in 0.00041s] (datetime.datetime(2024, 6, 12, 18, 51, 58, 777576),)
+2024-06-12 21:51:58,801 [INFO] COMMIT
+2024-06-12 21:51:58,807 [INFO] BEGIN (implicit)
+2024-06-12 21:51:58,809 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 21:51:58,809 [INFO] [cached since 0.01864s ago] (datetime.datetime(2024, 6, 12, 18, 51, 58, 806894),)
+2024-06-12 21:51:58,813 [INFO] COMMIT
+2024-06-12 21:52:58,827 [INFO] BEGIN (implicit)
+2024-06-12 21:52:58,834 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 21:52:58,835 [INFO] [cached since 60.04s ago] (datetime.datetime(2024, 6, 12, 18, 52, 58, 826340),)
+2024-06-12 21:52:58,839 [INFO] COMMIT
+2024-06-12 21:53:58,898 [INFO] BEGIN (implicit)
+2024-06-12 21:53:58,927 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 21:53:58,929 [INFO] [cached since 120.1s ago] (datetime.datetime(2024, 6, 12, 18, 53, 58, 898313),)
+2024-06-12 21:53:58,989 [INFO] COMMIT
+2024-06-12 21:54:48,143 [ERROR] unhandled exception during asyncio.run() shutdown
+task: <Task finished name='Task-2' coro=<main() done, defined at /Users/mandreykin/dev/FunnelWebinar/bot.py:103> exception=RuntimeError("Task <Task pending name='Task-2' coro=<main() running at /Users/mandreykin/dev/FunnelWebinar/bot.py:116> cb=[_gather.<locals>._done_callback() at /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py:767]> got Future <Task pending name='Task-33' coro=<Dispatcher.handler_worker() running at /Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/dispatcher.py:202>> attached to a different loop")>
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 629, in run_until_complete
+    self.run_forever()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 596, in run_forever
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1854, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/selectors.py", line 562, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mandreykin/dev/FunnelWebinar/bot.py", line 114, in main
+    await asyncio.sleep(60)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py", line 652, in sleep
+    return await future
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mandreykin/dev/FunnelWebinar/bot.py", line 116, in main
+    await app.stop()
+RuntimeError: Task <Task pending name='Task-2' coro=<main() running at /Users/mandreykin/dev/FunnelWebinar/bot.py:116> cb=[_gather.<locals>._done_callback() at /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py:767]> got Future <Task pending name='Task-33' coro=<Dispatcher.handler_worker() running at /Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/dispatcher.py:202>> attached to a different loop
+2024-06-12 21:58:22,114 [INFO] select pg_catalog.version()
+2024-06-12 21:58:22,114 [INFO] [raw sql] ()
+2024-06-12 21:58:22,119 [INFO] select current_schema()
+2024-06-12 21:58:22,119 [INFO] [raw sql] ()
+2024-06-12 21:58:22,125 [INFO] show standard_conforming_strings
+2024-06-12 21:58:22,126 [INFO] [raw sql] ()
+2024-06-12 21:58:22,133 [INFO] BEGIN (implicit)
+2024-06-12 21:58:22,138 [INFO] SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-06-12 21:58:22,139 [INFO] [generated in 0.00058s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-06-12 21:58:22,146 [INFO] SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-06-12 21:58:22,146 [INFO] [cached since 0.00777s ago] ('messages', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-06-12 21:58:22,150 [INFO] COMMIT
+2024-06-12 21:58:22,153 [INFO] База данных инициализирована
+2024-06-12 21:58:22,656 [INFO] Connecting...
+2024-06-12 21:58:22,750 [INFO] Connected! Production DC2 - IPv4
+2024-06-12 21:58:22,763 [INFO] NetworkTask started
+2024-06-12 21:58:23,009 [INFO] Session initialized: Layer 158
+2024-06-12 21:58:23,010 [INFO] Device: CPython 3.9.10 - Pyrogram 2.0.106
+2024-06-12 21:58:23,010 [INFO] System: Darwin 20.6.0 (en)
+2024-06-12 21:58:23,010 [INFO] Session started
+2024-06-12 21:58:23,012 [INFO] PingTask started
+2024-06-12 21:58:23,148 [INFO] Started 8 HandlerTasks
+2024-06-12 21:58:23,148 [INFO] Бот запущен
+2024-06-12 21:58:23,149 [INFO] BEGIN (implicit)
+2024-06-12 21:58:23,155 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 21:58:23,156 [INFO] [generated in 0.00033s] (datetime.datetime(2024, 6, 12, 18, 58, 23, 148460),)
+2024-06-12 21:58:23,161 [INFO] COMMIT
+2024-06-12 21:59:13,057 [ERROR] unhandled exception during asyncio.run() shutdown
+task: <Task finished name='Task-2' coro=<main() done, defined at /Users/mandreykin/dev/FunnelWebinar/bot.py:76> exception=RuntimeError("Task <Task pending name='Task-2' coro=<main() running at /Users/mandreykin/dev/FunnelWebinar/bot.py:90> cb=[_gather.<locals>._done_callback() at /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py:767]> got Future <Task pending name='Task-33' coro=<Dispatcher.handler_worker() running at /Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/dispatcher.py:202>> attached to a different loop")>
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 629, in run_until_complete
+    self.run_forever()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 596, in run_forever
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1854, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/selectors.py", line 562, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mandreykin/dev/FunnelWebinar/bot.py", line 84, in main
+    await asyncio.sleep(60)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py", line 652, in sleep
+    return await future
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mandreykin/dev/FunnelWebinar/bot.py", line 90, in main
+    await app.stop()
+RuntimeError: Task <Task pending name='Task-2' coro=<main() running at /Users/mandreykin/dev/FunnelWebinar/bot.py:90> cb=[_gather.<locals>._done_callback() at /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py:767]> got Future <Task pending name='Task-33' coro=<Dispatcher.handler_worker() running at /Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/dispatcher.py:202>> attached to a different loop
+2024-06-12 21:59:19,657 [INFO] select pg_catalog.version()
+2024-06-12 21:59:19,657 [INFO] [raw sql] ()
+2024-06-12 21:59:19,662 [INFO] select current_schema()
+2024-06-12 21:59:19,663 [INFO] [raw sql] ()
+2024-06-12 21:59:19,671 [INFO] show standard_conforming_strings
+2024-06-12 21:59:19,672 [INFO] [raw sql] ()
+2024-06-12 21:59:19,677 [INFO] BEGIN (implicit)
+2024-06-12 21:59:19,685 [INFO] SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-06-12 21:59:19,685 [INFO] [generated in 0.00050s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-06-12 21:59:19,695 [INFO] SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-06-12 21:59:19,696 [INFO] [cached since 0.01079s ago] ('messages', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-06-12 21:59:19,708 [INFO] COMMIT
+2024-06-12 21:59:19,711 [INFO] База данных инициализирована
+2024-06-12 21:59:20,309 [INFO] Connecting...
+2024-06-12 21:59:20,352 [INFO] Connected! Production DC2 - IPv4
+2024-06-12 21:59:20,357 [INFO] NetworkTask started
+2024-06-12 21:59:20,634 [INFO] Session initialized: Layer 158
+2024-06-12 21:59:20,635 [INFO] Device: CPython 3.9.10 - Pyrogram 2.0.106
+2024-06-12 21:59:20,635 [INFO] System: Darwin 20.6.0 (en)
+2024-06-12 21:59:20,635 [INFO] Session started
+2024-06-12 21:59:20,638 [INFO] PingTask started
+2024-06-12 21:59:20,917 [INFO] Started 8 HandlerTasks
+2024-06-12 21:59:20,917 [INFO] Бот запущен
+2024-06-12 21:59:20,920 [INFO] BEGIN (implicit)
+2024-06-12 21:59:20,939 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 21:59:20,940 [INFO] [generated in 0.00074s] (datetime.datetime(2024, 6, 12, 18, 59, 20, 918065),)
+2024-06-12 21:59:21,036 [INFO] COMMIT
+2024-06-12 22:00:21,071 [INFO] BEGIN (implicit)
+2024-06-12 22:00:21,078 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 22:00:21,079 [INFO] [cached since 60.14s ago] (datetime.datetime(2024, 6, 12, 19, 0, 21, 70757),)
+2024-06-12 22:00:21,087 [INFO] COMMIT
+2024-06-12 22:00:49,228 [ERROR] unhandled exception during asyncio.run() shutdown
+task: <Task finished name='Task-2' coro=<main() done, defined at /Users/mandreykin/dev/FunnelWebinar/bot.py:76> exception=RuntimeError("Task <Task pending name='Task-2' coro=<main() running at /Users/mandreykin/dev/FunnelWebinar/bot.py:90> cb=[_gather.<locals>._done_callback() at /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py:767]> got Future <Task pending name='Task-33' coro=<Dispatcher.handler_worker() running at /Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/dispatcher.py:202>> attached to a different loop")>
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 629, in run_until_complete
+    self.run_forever()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 596, in run_forever
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1854, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/selectors.py", line 562, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mandreykin/dev/FunnelWebinar/bot.py", line 84, in main
+    while True:
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py", line 652, in sleep
+    return await future
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mandreykin/dev/FunnelWebinar/bot.py", line 90, in main
+    finally:
+RuntimeError: Task <Task pending name='Task-2' coro=<main() running at /Users/mandreykin/dev/FunnelWebinar/bot.py:90> cb=[_gather.<locals>._done_callback() at /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py:767]> got Future <Task pending name='Task-33' coro=<Dispatcher.handler_worker() running at /Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/dispatcher.py:202>> attached to a different loop
+2024-06-12 22:00:55,602 [INFO] select pg_catalog.version()
+2024-06-12 22:00:55,602 [INFO] [raw sql] ()
+2024-06-12 22:00:55,607 [INFO] select current_schema()
+2024-06-12 22:00:55,607 [INFO] [raw sql] ()
+2024-06-12 22:00:55,614 [INFO] show standard_conforming_strings
+2024-06-12 22:00:55,614 [INFO] [raw sql] ()
+2024-06-12 22:00:55,618 [INFO] BEGIN (implicit)
+2024-06-12 22:00:55,624 [INFO] SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-06-12 22:00:55,626 [INFO] [generated in 0.00263s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-06-12 22:00:55,637 [INFO] SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-06-12 22:00:55,637 [INFO] [cached since 0.01416s ago] ('messages', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-06-12 22:00:55,651 [INFO] COMMIT
+2024-06-12 22:00:55,653 [INFO] База данных инициализирована
+2024-06-12 22:00:56,151 [INFO] Connecting...
+2024-06-12 22:00:56,196 [INFO] Connected! Production DC2 - IPv4
+2024-06-12 22:00:56,199 [INFO] NetworkTask started
+2024-06-12 22:00:56,459 [INFO] Session initialized: Layer 158
+2024-06-12 22:00:56,459 [INFO] Device: CPython 3.9.10 - Pyrogram 2.0.106
+2024-06-12 22:00:56,459 [INFO] System: Darwin 20.6.0 (en)
+2024-06-12 22:00:56,459 [INFO] Session started
+2024-06-12 22:00:56,462 [INFO] PingTask started
+2024-06-12 22:00:56,657 [INFO] Started 8 HandlerTasks
+2024-06-12 22:00:56,658 [INFO] Бот запущен
+2024-06-12 22:00:56,659 [INFO] BEGIN (implicit)
+2024-06-12 22:00:56,669 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 22:00:56,670 [INFO] [generated in 0.00039s] (datetime.datetime(2024, 6, 12, 19, 0, 56, 658175),)
+2024-06-12 22:00:56,674 [INFO] COMMIT
+2024-06-12 22:01:56,682 [INFO] BEGIN (implicit)
+2024-06-12 22:01:56,688 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 22:01:56,689 [INFO] [cached since 60.02s ago] (datetime.datetime(2024, 6, 12, 19, 1, 56, 680866),)
+2024-06-12 22:01:56,725 [INFO] COMMIT
+2024-06-12 22:02:56,736 [INFO] BEGIN (implicit)
+2024-06-12 22:02:56,743 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 22:02:56,743 [INFO] [cached since 120.1s ago] (datetime.datetime(2024, 6, 12, 19, 2, 56, 736002),)
+2024-06-12 22:02:56,751 [INFO] COMMIT
+2024-06-12 22:03:56,766 [INFO] BEGIN (implicit)
+2024-06-12 22:03:56,778 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 22:03:56,778 [INFO] [cached since 180.1s ago] (datetime.datetime(2024, 6, 12, 19, 3, 56, 761286),)
+2024-06-12 22:03:56,843 [INFO] COMMIT
+2024-06-12 22:04:09,824 [ERROR] Unhandled exception in main(): disk I/O error
+2024-06-12 22:04:09,825 [ERROR] unhandled exception during asyncio.run() shutdown
+task: <Task finished name='Task-2' coro=<main() done, defined at /Users/mandreykin/dev/FunnelWebinar/bot.py:76> exception=OperationalError('disk I/O error')>
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 629, in run_until_complete
+    self.run_forever()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 596, in run_forever
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1854, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/selectors.py", line 562, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mandreykin/dev/FunnelWebinar/bot.py", line 85, in main
+    await asyncio.sleep(60)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py", line 652, in sleep
+    return await future
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mandreykin/dev/FunnelWebinar/bot.py", line 91, in main
+    await app.stop()
+  File "/Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/methods/utilities/stop.py", line 65, in stop
+    await do_it()
+  File "/Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/methods/utilities/stop.py", line 61, in do_it
+    await self.terminate()
+  File "/Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/methods/auth/terminate.py", line 46, in terminate
+    await self.storage.save()
+  File "/Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/storage/sqlite_storage.py", line 119, in save
+    await self.date(int(time.time()))
+  File "/Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/storage/sqlite_storage.py", line 204, in date
+    return self._accessor(value)
+  File "/Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/storage/sqlite_storage.py", line 189, in _accessor
+    return self._get() if value == object else self._set(value)
+  File "/Users/mandreykin/dev/FunnelWebinar/venv/lib/python3.9/site-packages/pyrogram/storage/sqlite_storage.py", line 183, in _set
+    self.conn.execute(
+sqlite3.OperationalError: disk I/O error
+2024-06-12 22:04:09,832 [INFO] Принудительная остановка бота по запросу пользователя
+2024-06-12 22:04:16,727 [INFO] select pg_catalog.version()
+2024-06-12 22:04:16,728 [INFO] [raw sql] ()
+2024-06-12 22:04:16,732 [INFO] select current_schema()
+2024-06-12 22:04:16,732 [INFO] [raw sql] ()
+2024-06-12 22:04:16,742 [INFO] show standard_conforming_strings
+2024-06-12 22:04:16,742 [INFO] [raw sql] ()
+2024-06-12 22:04:16,749 [INFO] BEGIN (implicit)
+2024-06-12 22:04:16,759 [INFO] SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-06-12 22:04:16,760 [INFO] [generated in 0.00047s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-06-12 22:04:16,765 [INFO] SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2024-06-12 22:04:16,765 [INFO] [cached since 0.006852s ago] ('messages', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2024-06-12 22:04:16,768 [INFO] COMMIT
+2024-06-12 22:04:16,772 [INFO] База данных инициализирована
+2024-06-12 22:04:17,294 [INFO] Start creating a new auth key on DC2
+2024-06-12 22:04:17,294 [INFO] Connecting...
+2024-06-12 22:04:17,338 [INFO] Connected! Production DC2 - IPv4
+2024-06-12 22:04:18,934 [INFO] Done auth key exchange: DhGenOk
+2024-06-12 22:04:18,936 [INFO] Disconnected
+2024-06-12 22:04:18,949 [INFO] Connecting...
+2024-06-12 22:04:18,991 [INFO] Connected! Production DC2 - IPv4
+2024-06-12 22:04:18,996 [INFO] NetworkTask started
+2024-06-12 22:04:19,254 [INFO] Session initialized: Layer 158
+2024-06-12 22:04:19,254 [INFO] Device: CPython 3.9.10 - Pyrogram 2.0.106
+2024-06-12 22:04:19,254 [INFO] System: Darwin 20.6.0 (en)
+2024-06-12 22:04:19,255 [INFO] Session started
+2024-06-12 22:04:19,258 [INFO] PingTask started
+2024-06-12 22:04:38,065 [INFO] Started 8 HandlerTasks
+2024-06-12 22:04:38,071 [INFO] Бот запущен
+2024-06-12 22:04:38,075 [INFO] BEGIN (implicit)
+2024-06-12 22:04:38,084 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 22:04:38,084 [INFO] [generated in 0.00036s] (datetime.datetime(2024, 6, 12, 19, 4, 38, 72105),)
+2024-06-12 22:04:38,089 [INFO] COMMIT
+2024-06-12 22:05:38,103 [INFO] BEGIN (implicit)
+2024-06-12 22:05:38,109 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 22:05:38,110 [INFO] [cached since 60.03s ago] (datetime.datetime(2024, 6, 12, 19, 5, 38, 102069),)
+2024-06-12 22:05:38,114 [INFO] COMMIT
+2024-06-12 22:06:38,120 [INFO] BEGIN (implicit)
+2024-06-12 22:06:38,133 [INFO] SELECT messages.id, messages.user_id, messages.message_text, messages.scheduled_time, messages.sent, messages.created_at, messages.trigger, messages.reference_message_id 
+FROM messages 
+WHERE messages.sent IS false AND messages.scheduled_time <= $1::TIMESTAMP WITHOUT TIME ZONE
+2024-06-12 22:06:38,133 [INFO] [cached since 120s ago] (datetime.datetime(2024, 6, 12, 19, 6, 38, 119882),)
+2024-06-12 22:06:38,165 [INFO] COMMIT
